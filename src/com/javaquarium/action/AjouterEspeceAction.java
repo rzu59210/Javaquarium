@@ -29,6 +29,7 @@ public class AjouterEspeceAction extends Action {
 		IPoissonService poissonService = new PoissonService();
 		PoissonVO poisson = poissonService.getPoisson(((PoissonVO) form).getEspece());
 		if(poisson == null){
+			System.out.println("Largeur : " + ((PoissonVO) form).getLargeur());
 			poissonService.addPoisson((PoissonVO) form);
 		}else{
 			ActionErrors errors = new ActionErrors();

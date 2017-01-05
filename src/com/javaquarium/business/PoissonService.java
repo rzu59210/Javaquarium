@@ -59,8 +59,6 @@ public class PoissonService implements IPoissonService {
 			poisson.setEspece(p.getEspece());
 			poisson.setPrix(p.getPrix() + "");
 		}
-		System.out.println("mapPoisson PoissonService p : " + p);
-		System.out.println("mapPoisson PoissonService : " + poisson);
 		return poisson;		
 	}
 	
@@ -80,7 +78,8 @@ public class PoissonService implements IPoissonService {
 			poissonDO.setCode(poisson.getCode());
 			poissonDO.setCouleur(poisson.getCouleur());
 			poissonDO.setDescription(poisson.getDescription());
-		//	poissonDO.setDimension(poisson.getLargeur() + "x" + poisson.getLongeur());
+			poissonDO.setLargeur(poisson.getLargeur());
+			poissonDO.setLongueur(poisson.getLongeur());
 			poissonDO.setEspece(poisson.getEspece());
 			poissonDO.setPrix(poisson.getPrix());
 		}

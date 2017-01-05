@@ -35,7 +35,6 @@ public class PoissonDO {
 	@Column(name="c_largeur")
 	private String largeur;
 	
-	
 	@Column(name="c_prix")
 	private String prix;
 	
@@ -61,8 +60,6 @@ public class PoissonDO {
 	public String getLargeur() {
 		return largeur;
 	}
-	
-	
 	
 	/**
 	 * @param largeur the largeur to set
