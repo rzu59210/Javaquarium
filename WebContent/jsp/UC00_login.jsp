@@ -25,31 +25,45 @@ body {
 </head>
 <body>
 	<div id="error">
-		<html:errors />
+		Erreur :   <html:errors />
 	</div>
 	<div id="content">
-		<html:form styleClass="pure-form pure-form-aligned" action="connexion">
-			<fieldset>
-				<legend></legend>
-				<div class="pure-control-group">
-					<label for="name">Username</label>
-					 <html:text property="pseudo" />
-				</div>
+	<html:form  action="login" styleClass="pure-form pure-form-aligned">
+	<fieldset>
+	<legend></legend>
+      <div class="pure-control-group">
+		    <label for="login">
+		      <bean:message key="message.enregistrerUser.input.name.login"/>
+	      </label>
+	      <div class="col-sm-5">
+	        <html:text property="pseudo" /> 
+	      </div>
+	    </div>
+	    <div class="pure-control-group">
+		    <label for="password" class="col-sm-3 control-label">
+		      <bean:message key="message.enregistrerUser.input.name.password"/>
+		    </label>
+		    <div class="col-sm-5"> 
+		      <html:password property="password"/>
+		    </div>
+	    </div>
+	    <br />
+	    <div class="pure-control-group">
+	      <div class="col-sm-offset-3 col-sm-9">
+			    <html:submit property="submit" styleClass="btn btn-success">
+			      <bean:message key="message.enregistrerUser.button.enregistrer"/>
+			    </html:submit>
+		      <html:reset property="reset" styleClass="btn btn-danger">
+		        <bean:message key="message.enregistrerUser.button.reset"/>
+		      </html:reset>
+          <a class="btn btn-primary col-sm-offset-1" href="/Javaquarium/jsp/UC03_register.jsp">
+            <bean:message key="message.enregistrerUser.button.connexion"/>
+          </a>
+	      </div>
+      </div>
+      </fieldset>
+</html:form>
 
-				<div class="pure-control-group">
-					<label for="password">Password</label> 
-					<html:password property="password" />
-				</div>
-
-				<div class="pure-controls">
-					<html:submit property="submit" styleClass="pure-button pure-button-primary">Envoyer</html:submit>
-					<html:reset property="reset" styleClass="pure-button pure-button-warning">Reset</html:reset>
-				</div>
-				  <a class="btn btn-primary col-sm-offset-1" href="/Javaquarium/jsp/UC03_enregistrerUser.jsp">
-            		S'enregistrer
-				  </a>
-			</fieldset>
-		</html:form>
 	</div>
 
 </body>
