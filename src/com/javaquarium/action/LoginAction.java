@@ -1,5 +1,7 @@
 package com.javaquarium.action;
 
+import java.util.Properties;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,7 +36,9 @@ public class LoginAction extends Action{
 	public ActionForward execute(final ActionMapping mapping, 
 			final ActionForm form, final HttpServletRequest req,
 			final HttpServletResponse res) {
-
+		
+		Properties properties = new Properties();
+		String propertiesFileName = "ApplicationResources.properties";
 		String forward = FW_SUCCESS;
 
 		IUtilisateurService userService = new LoginService();
@@ -49,10 +53,11 @@ public class LoginAction extends Action{
 			.setAttribute(com.javaquarium.action.AjoutUserPoissonAction.SESSION_USER_POISSONS, null);
 		} else {
 			ActionErrors errors = new ActionErrors();
+			
 			errors.add("errors.field.login.incorrect.user_or_password", 
 					new ActionMessage(
-						"errors.field.login.incorrect.user_or_password"));
-		//	saveErrors(req, errors);
+						"Ma bite dans ton cul"));
+			saveErrors(req, errors);
 			forward = FW_FORM_ERROR;
 		}
 		

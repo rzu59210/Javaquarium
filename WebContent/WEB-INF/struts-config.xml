@@ -23,7 +23,7 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 		<action path="/register" input="/jsp/UC03_enregistrerUser.jsp" scope="request"
 			name="registerForm" type="com.javaquarium.action.RegisterAction">
 			<forward name="success" path="/jsp/UC00_login.jsp" redirect="true" />
-			<forward name="form_error" path="/jsp/UC03_register.jsp"
+			<forward name="form_error" path="/jsp/UC03_enregistrerUser.jsp"
 				redirect="true" />
 			<forward name="user_already_connected" path="/listerEspece.do"
 				redirect="true" />
