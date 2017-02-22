@@ -10,33 +10,34 @@ import com.javaquarium.beans.web.PoissonVO;
  * 
  */
 public interface IPoissonService {
-	
+
 	/**
 	 * @return allPoisson
 	 */
 	List<PoissonVO> getAllPoisson();
+
 	/**
 	 * @param poisson
 	 * @return PoissonDO object
 	 */
 	PoissonVO mapPoisson(PoissonDO poisson);
+
 	/**
 	 * @param poisson
 	 * @return PoissonVO object
 	 */
 	PoissonDO mapPoisson(PoissonVO poisson);
+
 	/**
 	 * @param espece
-	 * @return le poissonVO correspondant 
+	 * @return le poissonVO correspondant
 	 */
 	PoissonVO getPoisson(String espece);
-	
+
 	/**
 	 * @param poisson
-	 * add a poisson
+	 *            add a poisson
 	 */
 	void addPoisson(PoissonVO poisson);
-	
-	
 
 }

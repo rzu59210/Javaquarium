@@ -15,40 +15,41 @@ import com.javaquarium.dao.PoissonDAO;
  */
 /**
  * @author kevin
- *
+ * 
  */
 public class PoissonService implements IPoissonService {
 
 	private IPoissonDAO poissonDAO;
-	
+
 	/**
 	 * Constructor
 	 */
-	public PoissonService(){
+	public PoissonService() {
 		this.poissonDAO = new PoissonDAO();
 	}
-	
+
 	@Override
 	public List<PoissonVO> getAllPoisson() {
-		final List<PoissonDO> listPoisson =  poissonDAO.getAllPoisson();
+		final List<PoissonDO> listPoisson = poissonDAO.getAllPoisson();
 		final List<PoissonVO> poisson = new ArrayList<PoissonVO>(listPoisson.size());
-		for(final PoissonDO poissons : listPoisson){
+		for (final PoissonDO poissons : listPoisson) {
 			poisson.add(mapPoisson(poissons));
 		}
-		return poisson;	
+		return poisson;
 	}
+
 	@Override
 	public void addPoisson(final PoissonVO poisson) {
 		System.out.println("PoissonService addPoisson : " + poisson);
 		PoissonDO p = this.mapPoisson(poisson);
 		poissonDAO.addPoisson(p);
 	}
-	
+
 	/**
 	 * @param p
 	 * @return poisson
 	 */
-	public PoissonVO mapPoisson(final PoissonDO p){
+	public PoissonVO mapPoisson(final PoissonDO p) {
 		PoissonVO poisson = null;
 		if (p != null) {
 			poisson = new PoissonVO();
@@ -59,15 +60,13 @@ public class PoissonService implements IPoissonService {
 			poisson.setEspece(p.getEspece());
 			poisson.setPrix(p.getPrix() + "");
 		}
-		return poisson;		
+		return poisson;
 	}
-	
-	
+
 	@Override
 	public PoissonVO getPoisson(final String espece) {
 		return mapPoisson(poissonDAO.getPoisson(espece));
 	}
-	
 
 	@Override
 	public PoissonDO mapPoisson(final PoissonVO poisson) {
@@ -83,7 +82,7 @@ public class PoissonService implements IPoissonService {
 			poissonDO.setEspece(poisson.getEspece());
 			poissonDO.setPrix(poisson.getPrix());
 		}
-		return poissonDO;		
+		return poissonDO;
 	}
 
 }

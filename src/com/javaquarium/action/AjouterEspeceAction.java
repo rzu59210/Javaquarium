@@ -15,29 +15,27 @@ import com.javaquarium.business.IPoissonService;
 import com.javaquarium.business.PoissonService;
 
 /**
- * @author kevin
- * Page Web : Ajouter un poisson
+ * @author kevin Page Web : Ajouter un poisson
  */
 public class AjouterEspeceAction extends Action {
 	private static final String SUCCESS = "success";
 	private static final String ERROR = "error";
-	
-	public ActionForward execute(final ActionMapping mapping, 
-			final ActionForm form, final HttpServletRequest req,
-			final HttpServletResponse res){
+
+	public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest req,
+			final HttpServletResponse res) {
 		String forward = SUCCESS;
 		IPoissonService poissonService = new PoissonService();
 		PoissonVO poisson = poissonService.getPoisson(((PoissonVO) form).getEspece());
-		if(poisson == null){
+		if (poisson == null) {
 			System.out.println("Largeur : " + ((PoissonVO) form).getLargeur());
 			poissonService.addPoisson((PoissonVO) form);
-		}else{
+		} else {
 			ActionErrors errors = new ActionErrors();
-			errors.add("Erreur poisson déjà existant " , new ActionMessage("Erreur !"));
-			saveErrors(req,errors);
+			errors.add("Erreur poisson déjà existant ", new ActionMessage("Erreur !"));
+			saveErrors(req, errors);
 			forward = ERROR;
 		}
 		return mapping.findForward(forward);
 	}
-	
+
 }

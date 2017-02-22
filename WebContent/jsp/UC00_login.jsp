@@ -1,3 +1,6 @@
+<%@ taglib uri="/WEB-INF/tld/struts-bean-1.2.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/tld/struts-html-1.2.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/tld/struts-logic-1.2.tld" prefix="logic" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,24 +28,28 @@ body {
 		<html:errors />
 	</div>
 	<div id="content">
-		<form class="pure-form pure-form-aligned" action="connexion">
+		<html:form styleClass="pure-form pure-form-aligned" action="connexion">
 			<fieldset>
+				<legend></legend>
 				<div class="pure-control-group">
-					<label for="name">Username</label> <input id="name" type="text"
-						placeholder="Username">
+					<label for="name">Username</label>
+					 <html:text property="pseudo" />
 				</div>
 
 				<div class="pure-control-group">
-					<label for="password">Password</label> <input id="password"
-						type="password" placeholder="Password">
+					<label for="password">Password</label> 
+					<html:password property="password" />
 				</div>
 
 				<div class="pure-controls">
-					<button type="submit" class="pure-button pure-button-primary">Envoyer</button>
-					<button type="" class="pure-button pure-button-primary">Reset</button>
+					<html:submit property="submit" styleClass="pure-button pure-button-primary">Envoyer</html:submit>
+					<html:reset property="reset" styleClass="pure-button pure-button-warning">Reset</html:reset>
 				</div>
+				  <a class="btn btn-primary col-sm-offset-1" href="/Javaquarium/jsp/UC03_enregistrerUser.jsp">
+            		S'enregistrer
+				  </a>
 			</fieldset>
-		</form>
+		</html:form>
 	</div>
 
 </body>

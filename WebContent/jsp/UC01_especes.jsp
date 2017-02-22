@@ -37,7 +37,7 @@ body {
 		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
-					<th><bean:message key="message.app.colNom"/></th>
+					<th><bean:message key="message.app.colNom" /></th>
 					<th><bean:message key="message.app.colDesc"/></th>
 					<th><bean:message key="message.app.colColor"/></th>
 					<th><bean:message key="message.app.colDim"/></th>

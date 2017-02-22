@@ -12,12 +12,12 @@ import com.javaquarium.business.IPoissonService;
 import com.javaquarium.business.PoissonService;
 
 /**
- * @author kevin
- * Page Web : Lister les especes de poissons
+ * @author kevin Page Web : Lister les especes de poissons
  */
 public class ListerEspeceAction extends Action {
 	public static final String SESSION_LISTE_POISSON = "listePoisson";
-	private IPoissonService poisson ;
+	private IPoissonService poisson;
+
 	public ActionForward execute(final ActionMapping mapping, final ActionForm form, final HttpServletRequest req,
 			final HttpServletResponse res) {
 		poisson = new PoissonService();

@@ -10,16 +10,18 @@ public interface IPoissonDAO {
 	 * @return all the registred poisson
 	 */
 	List<PoissonDO> getAllPoisson();
+
 	/**
 	 * @param name
-	 * the name of the desired poisson object
+	 *            the name of the desired poisson object
 	 * @return the corresponding PoissonDO object
 	 */
 	PoissonDO getPoisson(String name);
+
 	/**
 	 * @param p
-	 *  PoissonDO object insert to the database
+	 *            PoissonDO object insert to the database
 	 */
 	void addPoisson(PoissonDO p);
-	
+
 }

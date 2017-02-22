@@ -3,36 +3,47 @@
 PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
 "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
 <struts-config>
-		<form-beans type="org.apache.struts.action.ActionFormBean">
-			<form-bean name="ajoutForm"	type="com.javaquarium.beans.web.PoissonVO"></form-bean>
-		</form-beans>
+	<form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="ajoutForm" type="com.javaquarium.beans.web.PoissonVO"></form-bean>
+		<form-bean name="loginForm" type="com.javaquarium.beans.web.LoginVO"></form-bean>
+		<form-bean name="registerForm" type="com.javaquarium.beans.web.UserVO"></form-bean>
+	</form-beans>
 	<action-mappings>
 		<action path="/listerEspece" type="com.javaquarium.action.ListerEspeceAction">
 			<forward name="success" path="/jsp/UC01_especes.jsp"></forward>
 		</action>
-		<action path="/" type="com.javaquarium.action.LoginAction">
-			<forward name="success" path="/jsp/UC00_login.jsp"></forward>
+		<action path="/connexion" type="com.javaquarium.action.LoginAction" name="loginForm" scope="request">
+			<forward name="success" path="/jsp//listerEspece.do"></forward>
+			<forward name="form_error" path="/jsp/UC00_login.jsp"
+				redirect="true" />
+			<forward name="user_already_connected" path="/listerEspece.do"
+				redirect="true" />
 		</action>
-		<action path="/ajout" input="/jsp/UC02_ajouterPoisson.jsp" scope="request"
-				name="ajoutForm" type="com.javaquarium.action.AjouterEspeceAction">
+		<action path="/register" input="/jsp/UC03_enregistrerUser.jsp" scope="request"
+			name="registerForm" type="com.javaquarium.action.RegisterAction">
+			<forward name="success" path="/jsp/UC00_login.jsp" redirect="true" />
+			<forward name="form_error" path="/jsp/UC03_register.jsp"
+				redirect="true" />
+			<forward name="user_already_connected" path="/listerEspece.do"
+				redirect="true" />
+		</action>
+	
+		<action path="/ajout" input="/jsp/UC02_ajouterPoisson.jsp"
+			scope="request" name="ajoutForm" type="com.javaquarium.action.AjouterEspeceAction">
 			<forward name="success" path="/listerEspece.do"></forward>
 			<forward name="form_error" path="/jsp/UC02_ajouterPoisson.jsp"
 				redirect="true" />
 		</action>
 	</action-mappings>
-	<!-- 	<action-mappings>
-		<action path="connexion" input="jsp/UC00_login.jsp" scope="request"
-			name="loginForm" type="com.javaquarium.action.UtilisateurFormAction">
-			<forward name="success" path="jsp/UC01_especes.jsp" redirect="false"></forward>
-			<forward name="false" path="js/UC00_login.jsp" redirect="false"></forward>
-		</action>
-	</action-mappings>
-	<form-beans type="org.apache.struts.action.ActionFormBean"/>
-		<form-bean name="loginForm"
-			type="com.javaquarium.action.UtilisateurFormAction"></form-bean> -->
-	
+	<!-- <action-mappings> <action path="connexion" input="jsp/UC00_login.jsp" 
+		scope="request" name="loginForm" type="com.javaquarium.action.UtilisateurFormAction"> 
+		<forward name="success" path="jsp/UC01_especes.jsp" redirect="false"></forward> 
+		<forward name="false" path="js/UC00_login.jsp" redirect="false"></forward> 
+		</action> </action-mappings> <form-beans type="org.apache.struts.action.ActionFormBean"/> 
+		<form-bean name="loginForm" type="com.javaquarium.action.UtilisateurFormAction"></form-bean> -->
+
 	<message-resources parameter="ApplicationResources" />
-	
-	
+
+
 
 </struts-config>

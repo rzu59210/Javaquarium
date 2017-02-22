@@ -22,7 +22,8 @@ public class PoissonVO extends ActionForm {
 	}
 
 	/**
-	 * @param largeur the largeur to set
+	 * @param largeur
+	 *            the largeur to set
 	 */
 	public void setLargeur(String largeur) {
 		this.largeur = largeur;
@@ -36,7 +37,8 @@ public class PoissonVO extends ActionForm {
 	}
 
 	/**
-	 * @param longeur the longeur to set
+	 * @param longeur
+	 *            the longeur to set
 	 */
 	public void setLongeur(String longeur) {
 		this.longeur = longeur;
