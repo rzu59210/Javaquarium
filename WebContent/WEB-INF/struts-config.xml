@@ -11,6 +11,8 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 	<action-mappings>
 		<action path="/listerEspece" type="com.javaquarium.action.ListerEspeceAction">
 			<forward name="success" path="/jsp/UC01_especes.jsp"></forward>
+			<forward name="disconnected_user_error" path="/jsp/UC00_login.jsp"
+				redirect="true" />
 		</action>
 		<action path="/login" input="/jsp/UC00_login.jsp" scope="request"
 			name="loginForm" type="com.javaquarium.action.LoginAction">
@@ -47,6 +49,19 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 	      <forward name="disconnected_user_error" path="/jsp/UC00_login.jsp"
 	        redirect="true" />
 		</action>
+		<action path="/viderPoisson" scope="request"
+		      type="com.javaquarium.action.ViderPoissonAction">
+		      <forward name="success" path="/listerEspece.do" redirect="true" />
+		      <forward name="disconnected_user_error" path="/jsp/UC00_login.jsp"
+		        redirect="true" />
+		</action>
+		<action path="/supprimerPoisson" scope="request"
+		      type="com.javaquarium.action.SupprimerPoissonAction">
+		      <forward name="success" path="/listerEspece.do" redirect="true" />
+		      <forward name="disconnected_user_error" path="/jsp/UC00_login.jsp"
+		        redirect="true" />
+		</action>
+		
 	</action-mappings>
 	<!-- <action-mappings> <action path="connexion" input="jsp/UC00_login.jsp" 
 		scope="request" name="loginForm" type="com.javaquarium.action.UtilisateurFormAction"> 

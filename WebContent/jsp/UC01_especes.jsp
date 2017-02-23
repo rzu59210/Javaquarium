@@ -55,9 +55,9 @@ a{
 				Sauvegarder
 				</button></a>
 			
-			<a class="btn btn-xs btn-danger">
-				<span class="glyphicon glyphicon-remove-sign"></span>
-				<button class="button-error pure-button">Vider</a></button>
+			<a  href="/Javaquarium/viderPoisson.do">
+				<button class="button-error pure-button">Vider</button>
+			</a>
 			
 		</div>
 		<table class="pure-table pure-table-bordered">
@@ -86,7 +86,12 @@ a{
 						name="poisson" property="espece" />">
 						<button class="button-success pure-button">Enregistrer</button>
 						</a>
+						<a 
+						href="/Javaquarium/supprimerPoisson.do?espece=<bean:write 
+						name="poisson" property="espece" />">
 						<button class="button-error pure-button">Supprimer</button>
+						</a>
+						
 					</td>
 				</tr>
 			</logic:iterate>
