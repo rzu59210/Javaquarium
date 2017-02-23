@@ -35,6 +35,18 @@ PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
 			<forward name="form_error" path="/jsp/UC02_ajouterPoisson.jsp"
 				redirect="true" />
 		</action>
+		<action path="/ajoutUserPoisson" scope="request"
+	      type="com.javaquarium.action.AjoutUserPoissonAction">
+	      <forward name="success" path="/listerEspece.do" redirect="true" />
+	      <forward name="disconnected_user_error" path="/jsp/UC00_login.jsp"
+	        redirect="true" />
+		</action>
+			<action path="/sauvegarderPoisson" scope="request"
+	      type="com.javaquarium.action.SauvegarderPoissonAction">
+	      <forward name="success" path="/listerEspece.do" redirect="true" />
+	      <forward name="disconnected_user_error" path="/jsp/UC00_login.jsp"
+	        redirect="true" />
+		</action>
 	</action-mappings>
 	<!-- <action-mappings> <action path="connexion" input="jsp/UC00_login.jsp" 
 		scope="request" name="loginForm" type="com.javaquarium.action.UtilisateurFormAction"> 

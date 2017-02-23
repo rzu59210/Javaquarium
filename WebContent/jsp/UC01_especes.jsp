@@ -1,4 +1,7 @@
+<%@page import="com.javaquarium.action.LoginAction"%>
 <%@page import="com.javaquarium.action.ListerEspeceAction"%>
+<%@page import="com.javaquarium.action.AjoutUserPoissonAction"%>
+<%@page import="com.javaquarium.util.SessionUtils"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic-1.2.tld" prefix="logic"%>
@@ -12,6 +15,12 @@
 body {
 	width: 1080px;
 	margin: auto;
+}
+table{
+	margin-top: 50px;
+}
+a{
+	color : white
 }
 .button-success,
 .button-error,
@@ -32,8 +41,25 @@ body {
 </head>
 <body>
 	<div id="content">
-		<h1>Bienvenue</h1>
+		<h1>
+		Bienvenue
+		<%=request.getSession().getAttribute(LoginAction.SESSION_USERNAME)%>
+		</h1>
+		<h2>Vous avez : <b><%=SessionUtils.countNumberOfPoisson(request.getSession().getAttribute(
+					AjoutUserPoissonAction.SESSION_USER_POISSONS))%></b> poisson(s)</h2>
 
+		<div id="buttonAction">
+			<a class="btn btn-xs btn-success"
+				href="/Javaquarium/sauvegarderPoisson.do">
+				<button class="button-success pure-button">
+				Sauvegarder
+				</button></a>
+			
+			<a class="btn btn-xs btn-danger">
+				<span class="glyphicon glyphicon-remove-sign"></span>
+				<button class="button-error pure-button">Vider</a></button>
+			
+		</div>
 		<table class="pure-table pure-table-bordered">
 			<thead>
 				<tr>
@@ -43,23 +69,34 @@ body {
 					<th><bean:message key="message.app.colDim"/></th>
 					<th><bean:message key="message.app.colPrix"/></th>
 					<th><bean:message key="message.app.colDetail"/></th>
-					<th><bean:message key="message.app.colOther"/></th>
+					
 				</tr>
 			</thead>
 			
-			<logic:iterate id="poisson" name="<%=ListerEspeceAction.SESSION_LISTE_POISSON %>">
+			<logic:iterate id="poisson" scope="session" name="<%=ListerEspeceAction.SESSION_LISTE_POISSON%>">
 				<tr>
 					<td><bean:write name="poisson" property="espece" /></td>
 					<td><bean:write name="poisson" property="description" /></td>
 					<td><bean:write name="poisson" property="couleur" /></td>
 					<td><bean:write name="poisson" property="dimension" /></td>
 					<td><bean:write name="poisson" property="prix" /></td>
-					<td>RAS</td>
-					<td><button class="button-success pure-button">Modifier</button> <button class="button-error pure-button">Supprimer</button></td>
+					<td>
+						<a
+						href="/Javaquarium/ajoutUserPoisson.do?espece=<bean:write 
+						name="poisson" property="espece" />">
+						<button class="button-success pure-button">Enregistrer</button>
+						</a>
+						<button class="button-error pure-button">Supprimer</button>
+					</td>
 				</tr>
 			</logic:iterate>
 		</table>
-		</br> <a href="jsp/UC02_ajouterPoisson.jsp">Ajouter un poisson</a>
+		</br>
+		<a href="jsp/UC02_ajouterPoisson.jsp">
+		<button class="button-success pure-button">
+		 	Ajouter un poisson
+		 </button>
+		 </a>
 	</div>
 </body>
 </html>

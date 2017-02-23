@@ -56,7 +56,7 @@ public class LoginAction extends Action{
 			
 			errors.add("errors.field.login.incorrect.user_or_password", 
 					new ActionMessage(
-						"Ma bite dans ton cul"));
+						"errors.field.login.incorrect.user_or_password"));
 			saveErrors(req, errors);
 			forward = FW_FORM_ERROR;
 		}

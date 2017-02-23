@@ -25,5 +25,6 @@
 		<!-- Fichier a mapper -->
 		<mapping class="com.javaquarium.beans.data.PoissonDO"></mapping>
 		<mapping class="com.javaquarium.beans.data.UserDO"></mapping>
+		<mapping class="com.javaquarium.beans.data.UserPoissonDO"></mapping>
      </session-factory> 
  </hibernate-configuration>
